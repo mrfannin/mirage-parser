@@ -218,25 +218,8 @@ class Product {
 
         // takes into account word as given, upper case, lower case, and first letter capitalized
         wordList.forEach((word) => {
-            /*valueSplit = valueSplit.filter(w => w != word &&
-                                                w !=  word.slice(0, 1).toUpperCase() + word.substring(1).toLowerCase() &&
-                                                w != word.toUpperCase() &&
-                                                w != word.toLowerCase());
-            console.log(valueSplit);*/
 
-            /* valueSplit.forEach((val, i) => {
-
-                if (val == word || val == word.slice(0, 1).toUpperCase() + word.substring(1).toLowerCase() || val == word.toUpperCase() || val == word.toLowerCase())
-                {
-                    while (wordList.indexOf(word) != -1)
-                    {
-                        wordList.splice(wordList.indexOf(word));
-                    }
-                }
-                
-            }); */
-
-            //console.log(valueSplit.indexOf(word.slice(0, 1).toUpperCase() + word.substring(1).toLowerCase()));
+            var hello;
 
             wordRemoved = false;
 
