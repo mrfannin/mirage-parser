@@ -57,6 +57,7 @@ function ParseOptions(file)
 
 function ParseFile(splitData, skuIndex, nameIndex)
 {
+    
     // add products to groups
     for (var i = 1; i < splitData.length - 1; i++)
     {
@@ -74,7 +75,9 @@ function ParseFile(splitData, skuIndex, nameIndex)
     });
 
     //export data
-    let csvContent = "data:text/csv;charset=utf-8,";
+    let prefix = "data:text/csv;charset=utf-8,";
+
+    let csvContent = "";
 
     // add value and column headers to first row
     csvContent += splitData[0].substring(0, splitData[0].length - 1) + ",name,value\n";
@@ -94,7 +97,7 @@ function ParseFile(splitData, skuIndex, nameIndex)
     });
 
     // create and initiate the download
-    var encodedUri = encodeURI(csvContent);
+    var encodedUri = prefix + encodeURIComponent(csvContent);
     var link = document.createElement("a");
     link.setAttribute("href", encodedUri);
     link.setAttribute("download", "output.csv");
@@ -115,6 +118,7 @@ function ParseProduct(productStr, currentIndex, skuIndex, nameIndex)
         // create product, switch out commas in names to avoid splitting them
         var prodWithoutCommas = productStr.replace(/(?<=,".+),(?=.+",)/g, "^");
         prodWithoutCommas = prodWithoutCommas.replace(/"\^"/g, '","');
+
         var prodSplit = prodWithoutCommas.split(',');
 
         // put commas back in, and remove necessary quotes
