@@ -1,0 +1,34 @@
+!! if no variants, don't add value !!
+!! Rewrite comma code, super messy !!
+!! Look at efficiency of for loops, seems like maybe too many !!
+!! Line 41405, and others, doesn't separate lines for some reason !!
+
+- line 197, think of something for Charms
+
+- line 166, dashes occasionally after colors, part of name too, should be easy to remove
+
+- line 2471, annoying names without sizes or colors, happens a couple times, probably ignore, a fix would require a whole rewrite to have everything based on the sku, maybe worth it but idk
+
+- line 21825, takes the sm in the name as a size, will be ignored because of single value fix, and shouldn't be an issue otherwise
+
+- line 28239, maybe add long to size search, not a huge issue right now, check if it breaks others first
+
+- line 28473, should be fixed with single value fix
+
+- line 30192, more single value fix
+
+- line 30753, more single value fix
+
+- line 33084, annoying names, probably not an issue
+
+- line 34203, same as 28239
+
+- line 37833, single value fix and then annoying names
+
+- line 37981, single value fix
+
+- line 38441, single value fix
+
+- line 39264, doublue black removal, thought I fixed this
+
+- line 39759, single value fix
