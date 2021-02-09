@@ -223,8 +223,6 @@ class Product {
         // takes into account word as given, upper case, lower case, and first letter capitalized
         wordList.forEach((word) => {
 
-            var hello;
-
             wordRemoved = false;
 
             if (!wordRemoved && valueSplit.indexOf(word) != -1) 
@@ -252,6 +250,11 @@ class Product {
         });
 
         this.value = valueSplit.join(" ");
+
+        if (this.value == this.name) 
+        {
+            this.value = "";
+        }
     }
 
     // separates the size and other variants and sets the value for this product
@@ -259,27 +262,34 @@ class Product {
     {
         this.valueText = "";
 
-        //removes exceptions *the word size, anything in parentheses, word pet)
-        this.value = this.value.replace(/Size: |Size |\(.+\)|Pet /g, "");
-
-        // Finds the size if there is one that matches
-        var size = this.value.match(sizes);
-
-        // Removes the size from the rest of the value
-        var option = this.value.replace(sizes, "").trim();
-
-        // Assembles the value text, depending on if there is a size or option or both
-        if (option)
+        if (this.value != "")
         {
-            this.valueText += "Option: " + option;
-        }
-        if (size)
-        {
-            if (this.valueText != "")
+            //removes exceptions *the word size, anything in parentheses, word pet)
+            this.value = this.value.replace(/Size: |Size |\(.+\)|Pet /g, "");
+
+            // Finds the size if there is one that matches
+            var size = this.value.match(sizes);
+
+            // Removes the size from the rest of the value
+            var option = this.value.replace(sizes, "").trim();
+
+            // Assembles the value text, depending on if there is a size or option or both
+            if (option)
             {
-                this.valueText += ";";
+                this.valueText += "Option: " + option;
             }
-            this.valueText += "Size: " + size[0].trim();
-        }   
+            if (size)
+            {
+                if (this.valueText != "")
+                {
+                    this.valueText += ";";
+                }
+                this.valueText += "Size: " + size[0].trim();
+            } 
+        }  
+        else 
+        {
+           this.valueText == ""; 
+        }
     }
 }
