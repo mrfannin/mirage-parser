@@ -4,8 +4,6 @@
 
 - line 197, think of something for Charms
 
-- line 166, dashes occasionally after colors, part of name too, should be easy to remove
-
 - line 2471, annoying names without sizes or colors, happens a couple times, probably ignore, a fix would require a whole rewrite to have everything based on the sku, maybe worth it but idk
 
 - line 28239, maybe add long to size search, not a huge issue right now, check if it breaks others first

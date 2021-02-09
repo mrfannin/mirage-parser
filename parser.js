@@ -96,7 +96,7 @@ function ParseFile(splitData, skuIndex, nameIndex)
         });
     });
 
-    // create and initiate the download
+    // create and initiate the download, have to do prefix becuase of #s in names
     var encodedUri = prefix + encodeURIComponent(csvContent);
     var link = document.createElement("a");
     link.setAttribute("href", encodedUri);
@@ -123,6 +123,10 @@ function ParseProduct(productStr, currentIndex, skuIndex, nameIndex)
 
         // put commas back in, and remove necessary quotes
         var productName = prodSplit[nameIndex].replace(/^"|"$/g, "").replace(/""/g, '"').replace(/\^/g, ",").trim();
+
+        // remove dashes from end of names
+        productName = productName.replace(/ -/, "");
+
         var tempProduct = new Product(productName, prodSplit[skuIndex], currentIndex);
         
         var skuHead = tempProduct.sku.split(' ')[0];
